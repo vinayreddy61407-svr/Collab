@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: #333;
+            color: white;
+            width: 250px;
+            height: 100%;
+            padding-top: 20px;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar ul li:hover {
+            background-color: #555;
+            cursor: pointer;
+        }
+
+        /* Main Content Styles */
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .content h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 23%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .card .count {
+            font-size: 30px;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Users</li>
+            <li>Reports</li>
+            <li>Settings</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Welcome to Your Dashboard</h1>
+
+        <!-- Cards displaying data -->
+        <div class="cards">
+            <div class="card" id="card1">
+                <h3>Total Users</h3>
+                <p>Active users on the platform</p>
+                <div class="count" id="count1">1200</div>
+            </div>
+            <div class="card" id="card2">
+                <h3>New Signups</h3>
+                <p>New users registered today</p>
+                <div class="count" id="count2">56</div>
+            </div>
+            <div class="card" id="card3">
+                <h3>Total Revenue</h3>
+                <p>Revenue generated this month</p>
+                <div class="count" id="count3">$35,500</div>
+            </div>
+            <div class="card" id="card4">
+                <h3>Support Tickets</h3>
+                <p>Open support tickets</p>
+                <div class="count" id="count4">42</div>
+            </div>
+        </div>
+
+        <!-- JS dynamically updates card data -->
+        <div id="dynamicMessage" style="margin-top: 20px;">
+            <button onclick="updateData()">Click to Update Data</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 Dashboard Corp. All Rights Reserved.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Function to simulate dynamic data update
+        function updateData() {
+            const randomUserCount = Math.floor(Math.random() * 5000) + 1000;
+            const randomSignups = Math.floor(Math.random() * 100) + 10;
+            const randomRevenue = Math.floor(Math.random() * 50000) + 1000;
+            const randomTickets = Math.floor(Math.random() * 100) + 1;
+
+            // Update counts dynamically
+            document.getElementById('count1').textContent = randomUserCount;
+            document.getElementById('count2').textContent = randomSignups;
+            document.getElementById('count3').textContent = '$' + randomRevenue;
+            document.getElementById('count4').textContent = randomTickets;
+
+            // Optional dynamic message change
+            document.getElementById('dynamicMessage').innerHTML = "<p>Data has been updated!</p>";
+        }
+    </script>
+    
+</body>
+</html>
