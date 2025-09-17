@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Improvement Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #202936;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .card {
+      flex: 1 1 180px;
+      background: #eaf1fb;
+      color: #253858;
+      border-radius: 10px;
+      padding: 22px 14px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      transition: box-shadow 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .card h2 {
+      font-size: 2rem;
+      margin: 0 0 8px 0;
+    }
+    .card span {
+      font-size: 1.1rem;
+      display: block;
+      margin-top: 7px;
+    }
+    label, input, button {
+      display: block;
+      margin: 13px auto;
+      width: 60%;
+      font-size: 1rem;
+    }
+    button {
+      background: #3e8ed0;
+      color: #fff;
+      border: none;
+      padding: 9px 0;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 40%;
+    }
+    button:hover {
+      background: #276bb0;
+    }
+    .response-area {
+      margin-top: 24px;
+      border-top: 1px solid #adc1e8;
+      padding-top: 13px;
+      text-align: center;
+      color: #225779;
+    }
+    @media (max-width: 700px) {
+      .cards { flex-direction: column; }
+      .container { padding: 18px; }
+      input, label, button { width: 95%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Improvement Dashboard</h1>
+    <div class="cards">
+      <div class="card">
+        <h2 id="accuracy">98.5%</h2>
+        <span>Model Accuracy</span>
+      </div>
+      <div class="card">
+        <h2 id="speed">0.8s</h2>
+        <span>Average Response Time</span>
+      </div>
+      <div class="card">
+        <h2 id="users">5120</h2>
+        <span>Active Users</span>
+      </div>
+      <div class="card">
+        <h2 id="updates">14</h2>
+        <span>Improvements This Month</span>
+      </div>
+    </div>
+    <div class="prompt-area">
+      <label for="user-input">Suggest an improvement for AI:</label>
+      <input id="user-input" type="text" placeholder="Type your suggestion here...">
+      <button id="submit-btn">Submit</button>
+    </div>
+    <div class="response-area" id="response-area"></div>
+  </div>
+  <script>
+    document.getElementById('submit-btn').onclick = function() {
+      var input = document.getElementById('user-input').value.trim();
+      var responseArea = document.getElementById('response-area');
+
+      if(input.length === 0) {
+        responseArea.textContent = 'Please enter a suggestion before submitting.';
+      } else {
+        // Simulate submitting to AI improvement platform or saving suggestion
+        responseArea.textContent = 'Thank you for your suggestion! Our team will review: "' + input + '".';
+        document.getElementById('user-input').value = '';
+      }
+    };
+  </script>
+</body>
+</html>
